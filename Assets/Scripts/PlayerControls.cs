@@ -21,7 +21,8 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {   
         // Current Velocity
-        rb.velocity = new Vector2(2, rb.velocity.y);
+        rb.velocity = new Vector2(3, rb.velocity.y);
+        rb.freezeRotation = true;
 
         onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadious, whatIsGround);
 
@@ -31,9 +32,9 @@ public class PlayerControls : MonoBehaviour
         }
 
         // Why I can't get my onGround to work as expected? :/ not a code problem though
-        if(Input.GetMouseButtonDown(0) && onGround)
+        if(Input.GetMouseButtonDown(0))
         {
-            rb.velocity = new Vector2(rb.velocity.x, 4);
+            rb.velocity = new Vector2(rb.velocity.x, 6);
         }
     }
 }
